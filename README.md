@@ -13,6 +13,9 @@
 [![Docs](https://readthedocs.org/projects/rebound/badge/?version=latest)](https://rebound.readthedocs.io/en/latest/?badge=latest)
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/hannorein/rebound/main)
     
+# REBOUND
+
+Forked by MJP on 2022-02-09 with the goal of using this as an MPC-version that contains a few small changes desired/requuired in order to get (e.g.) max-timesteps.
 
 # Welcome to REBOUND
 
