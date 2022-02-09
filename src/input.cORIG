@@ -193,7 +193,6 @@ int reb_input_field(struct reb_simulation* r, FILE* inf, enum reb_input_binary_m
         CASE(WHFAST_COORDINATES, &r->ri_whfast.coordinates);
         CASE(IAS15_EPSILON,      &r->ri_ias15.epsilon);
         CASE(IAS15_MINDT,        &r->ri_ias15.min_dt);
-	CASE(IAS15_MAXDT,        &r->ri_ias15.max_dt);
         CASE(IAS15_EPSILONGLOBAL,&r->ri_ias15.epsilon_global);
         CASE(IAS15_ITERATIONSMAX,&r->ri_ias15.iterations_max_exceeded);
         CASE(IAS15_ALLOCATEDN,   &r->ri_ias15.allocatedN);
@@ -221,6 +220,13 @@ int reb_input_field(struct reb_simulation* r, FILE* inf, enum reb_input_binary_m
         CASE(EOS_SAFEMODE,       &r->ri_eos.safe_mode);
         CASE(EOS_ISSYNCHRON,     &r->ri_eos.is_synchronized);
         CASE(RAND_SEED,          &r->rand_seed);
+        CASE(BS_EPSABS,          &r->ri_bs.eps_abs);
+        CASE(BS_EPSREL,          &r->ri_bs.eps_rel);
+        CASE(BS_MINDT,           &r->ri_bs.min_dt);
+        CASE(BS_MAXDT,           &r->ri_bs.max_dt);
+        CASE(BS_FIRSTORLASTSTEP, &r->ri_bs.firstOrLastStep);
+        CASE(BS_PREVIOUSREJECTED,&r->ri_bs.previousRejected);
+        CASE(BS_TARGETITER,      &r->ri_bs.targetIter);
         // temporary solution for depreciated SABA k and corrector variables.
         // can be removed in future versions
         case 138: 
@@ -398,7 +404,7 @@ struct reb_simulation* reb_input_process_warnings(struct reb_simulation* r, enum
         return NULL;
     }
     if (warnings & REB_INPUT_BINARY_WARNING_CORRUPTFILE){
-        reb_warning(r,"The binary file seems to be corrupted. An attempt has been made to recover parts of it. However, it might not be possible to append snapshots to the current file.");
+        reb_warning(r,"The binary file seems to be corrupted. An attempt has been made to read the uncorrupted parts of it.");
     }
     return r;
 }
