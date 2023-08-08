@@ -4,7 +4,7 @@ astroquery
 jplephem
 novas # Not available on Windows: https://github.com/brandon-rhodes/python-novas/issues/15
 novas_de405
-numpy>=1.19.5
+numpy
 pytest
 scipy
 psycopg2-binary
@@ -26,5 +26,4 @@ unidecode
 pylatexenc
 matplotlib
 ipywidgets
-jsonschema>=3.2.0
-pyrsistent>=0.18.0
+jsonschema
